@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build stage completed'
+                bat 'dir'
             }
         }
     }
