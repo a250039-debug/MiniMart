@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMart", "MiniMart\MiniMart.csproj", "{EBB76C8A-7FDC-4E42-A4D5-EC94F33A2457}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBB76C8A-7FDC-4E42-A4D5-EC94F33A2457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB76C8A-7FDC-4E42-A4D5-EC94F33A2457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB76C8A-7FDC-4E42-A4D5-EC94F33A2457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB76C8A-7FDC-4E42-A4D5-EC94F33A2457}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE139B17-2597-49AA-9E1F-73932B191D74}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿@model MiniMart.Models.Admin
+
+@{
+    ViewBag.Title = "Admin Login";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-5">
+
+        <div class="custom-card">
+
+            <h2 class="text-center mb-4"
+                style="color:#6a11cb; font-weight:bold;">
+
+                Admin Login
+
+            </h2>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Message
+                </div>
+            }
+
+            @using (Html.BeginForm())
+            {
+                <div class="mb-3">
+
+                    <label>Email</label>
+
+                    @Html.TextBoxFor(m => m.Email,
+                    new { @class = "form-control" })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Password</label>
+
+                    @Html.PasswordFor(m => m.Password,
+                    new { @class = "form-control" })
+
+                </div>
+
+                <button type="submit"
+                        class="btn text-white w-100"
+                        style="background:#6a11cb;">
+
+                    Login
+
+                </button>
+            }
+
+        </div>
+
+    </div>
+
+</div>

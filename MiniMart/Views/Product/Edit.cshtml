@@ -1,0 +1,73 @@
+﻿@model MiniMart.Models.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-7">
+
+        <div class="custom-card">
+
+            <h2 class="text-center mb-4"
+                style="color:#6a11cb; font-weight:bold;">
+
+                Edit Product
+
+            </h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(m => m.ProductId)
+
+                <div class="mb-3">
+
+                    <label>Product Name</label>
+
+                    @Html.TextBoxFor(m => m.ProductName,
+                    new { @class = "form-control" })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Category</label>
+
+                    @Html.TextBoxFor(m => m.Category,
+                    new { @class = "form-control" })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Price</label>
+
+                    @Html.TextBoxFor(m => m.Price,
+                    new { @class = "form-control" })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Description</label>
+
+                    @Html.TextAreaFor(m => m.Description,
+                    new { @class = "form-control", rows = 4 })
+
+                </div>
+
+                <button type="submit"
+                        class="btn text-white w-100"
+                        style="background:#6a11cb;">
+
+                    Update Product
+
+                </button>
+            }
+
+        </div>
+
+    </div>
+
+</div>

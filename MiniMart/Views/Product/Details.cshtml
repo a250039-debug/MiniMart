@@ -1,0 +1,71 @@
+﻿@model MiniMart.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-10">
+
+        <div class="custom-card">
+
+            <div class="row">
+
+                <div class="col-md-5 text-center">
+
+                    <img src="@Model.ImagePath"
+                         width="350"
+                         height="350"
+                         style="object-fit:cover;
+                                border-radius:15px;" />
+
+                </div>
+
+                <div class="col-md-7">
+
+                    <h1 style="color:#6a11cb;
+                               font-weight:bold;">
+
+                        @Model.ProductName
+
+                    </h1>
+
+                    <h3 class="mt-3"
+                        style="color:#2575fc;">
+
+                        ₹@Model.Price
+
+                    </h3>
+
+                    <h5 class="mt-3 text-secondary">
+
+                        Category:
+                        @Model.Category
+
+                    </h5>
+
+                    <hr />
+
+                    <p style="font-size:18px;">
+
+                        @Model.Description
+
+                    </p>
+
+                    <button class="btn btn-lg text-white mt-3"
+                            style="background:#6a11cb;">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

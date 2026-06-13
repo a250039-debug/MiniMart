@@ -1,0 +1,144 @@
+﻿@model MiniMart.Models.Product
+
+@{
+    ViewBag.Title = "Add Product";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-7">
+
+        <div class="custom-card">
+
+            <h2 class="text-center mb-4"
+                style="color:#6a11cb; font-weight:bold;">
+
+                Add New Product
+
+            </h2>
+
+            @using (Html.BeginForm("Create",
+                   "Product",
+                   FormMethod.Post,
+                   new { enctype = "multipart/form-data" }))
+            {
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Product Name
+                    </label>
+
+                    @Html.TextBoxFor(m => m.ProductName,
+                    new
+                    {
+                        @class = "form-control",
+                        placeholder = "Enter product name"
+                    })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category
+                    </label>
+
+                    @Html.DropDownListFor(m => m.Category,
+
+                    new List<SelectListItem>
+                    {
+                        new SelectListItem
+                        {
+                            Text = "Electronics",
+                            Value = "Electronics"
+                        },
+
+                        new SelectListItem
+                        {
+                            Text = "Fashion",
+                            Value = "Fashion"
+                        },
+
+                        new SelectListItem
+                        {
+                            Text = "Shoes",
+                            Value = "Shoes"
+                        },
+
+                        new SelectListItem
+                        {
+                            Text = "Accessories",
+                            Value = "Accessories"
+                        },
+
+                        new SelectListItem
+                        {
+                            Text = "Food",
+                            Value = "Food"
+                        }
+                    },
+
+                    "Select Category",
+
+                    new { @class = "form-control" })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Price
+                    </label>
+
+                    @Html.TextBoxFor(m => m.Price,
+                    new
+                    {
+                        @class = "form-control",
+                        placeholder = "Enter price"
+                    })
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Description
+                    </label>
+
+                    @Html.TextAreaFor(m => m.Description,
+                    new
+                    {
+                        @class = "form-control",
+                        rows = 4,
+                        placeholder = "Enter product description"
+                    })
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Product Image
+                    </label>
+
+                    <input type="file"
+                           name="ImageFile"
+                           class="form-control" />
+
+                </div>
+
+                <button type="submit"
+                        class="btn text-white w-100"
+                        style="background:#6a11cb;
+                               font-size:18px;">
+
+                    Add Product
+
+                </button>
+            }
+
+        </div>
+
+    </div>
+
+</div>

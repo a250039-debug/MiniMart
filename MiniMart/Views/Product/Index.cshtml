@@ -1,0 +1,171 @@
+﻿@model List<MiniMart.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2 class="text-center mb-3"
+    style="color:#6a11cb; font-weight:bold;">
+
+    Product Catalog
+
+</h2>
+
+<p class="text-center text-secondary mb-4">
+
+    Total Products:
+    <strong>@ViewBag.ProductCount</strong>
+
+</p>
+
+@if (Session["Admin"] != null)
+{
+    <div class="text-center mb-4">
+
+        <a href="/Product/Create"
+           class="btn btn-lg text-white"
+           style="background:#6a11cb;">
+
+            + Add New Product
+
+        </a>
+
+    </div>
+}
+
+<div class="row mb-4">
+
+    <div class="col-md-8 mx-auto">
+
+        @using (Html.BeginForm("Index",
+               "Product",
+               FormMethod.Get))
+        {
+            <div class="row">
+
+                <div class="col-md-5">
+
+                    <input type="text"
+                           name="search"
+                           class="form-control"
+                           placeholder="Search products..." />
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <select name="category"
+                            class="form-control">
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                        <option value="Fashion">
+                            Fashion
+                        </option>
+
+                        <option value="Shoes">
+                            Shoes
+                        </option>
+
+                        <option value="Accessories">
+                            Accessories
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <button type="submit"
+                            class="btn text-white w-100"
+                            style="background:#6a11cb;">
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+
+            <div class="custom-card text-center">
+
+                <img src="@item.ImagePath"
+                     width="180"
+                     height="180"
+                     style="object-fit:cover;" />
+
+                <h4 class="mt-3">
+                    @item.ProductName
+                </h4>
+
+                <h5 style="color:#6a11cb;">
+                    ₹@item.Price
+                </h5>
+
+                <p class="text-secondary">
+                    @item.Category
+                </p>
+
+                <a href="@Url.Action("Details",
+                         "Product",
+                         new { id = item.ProductId })"
+                   class="btn btn-dark">
+
+                    View Details
+
+                </a>
+
+                @if (Session["Admin"] != null)
+                {
+                    <div class="mt-2">
+
+                        <a href="@Url.Action("Edit",
+                                 "Product",
+                                 new { id = item.ProductId })"
+                           class="btn btn-warning">
+
+                            Edit
+
+                        </a>
+
+                        <a href="@Url.Action("Delete",
+                                 "Product",
+                                 new { id = item.ProductId })"
+                           class="btn btn-danger">
+
+                            Delete
+
+                        </a>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    }
+
+</div>

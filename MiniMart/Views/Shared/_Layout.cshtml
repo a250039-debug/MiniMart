@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title - MiniMart</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: #f5f7fb;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 15px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+            .nav-link:hover {
+                color: #ffd700 !important;
+            }
+
+        .body-content {
+            margin-top: 40px;
+            min-height: 80vh;
+        }
+
+        .custom-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #212529;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark">
+
+        <div class="container">
+
+            @Html.ActionLink("MiniMart", "Index", "Home",
+            null, new { @class = "navbar-brand" })
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li>
+                        @Html.ActionLink("Home",
+                        "Index",
+                        "Home",
+                        null,
+                        new { @class = "nav-link" })
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Products",
+                        "Index",
+                        "Product",
+                        null,
+                        new { @class = "nav-link" })
+                    </li>
+
+                    @if (Session["Admin"] == null)
+                    {
+                        <li>
+                            @Html.ActionLink("Admin Login",
+                            "Login",
+                            "Admin",
+                            null,
+                            new { @class = "nav-link" })
+                        </li>
+                    }
+                    else
+                    {
+                <li>
+                    <a href="/Product/Create"
+                       class="nav-link">
+
+                        Add Product
+
+                    </a>
+                </li>
+                        <li>
+                            <a class="nav-link text-warning">
+
+                                @Session["Admin"]
+
+                            </a>
+                        </li>
+
+                        <li>
+                            @Html.ActionLink("Logout",
+                            "Logout",
+                            "Admin",
+                            null,
+                            new { @class = "nav-link" })
+                        </li>
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+    </div>
+
+    <footer>
+
+        <p>
+            &copy; @DateTime.Now.Year - MiniMart Product Catalog
+        </p>
+
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
