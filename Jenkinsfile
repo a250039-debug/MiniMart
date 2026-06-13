@@ -4,13 +4,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'MiniMart project checked out successfully'
+                echo 'Cloning MiniMart repository...'
             }
         }
 
-        stage('Build') {
+        stage('Verify Files') {
             steps {
                 bat 'dir'
+            }
+        }
+
+        stage('Success') {
+            steps {
+                echo 'MiniMart pipeline executed successfully!'
             }
         }
     }
